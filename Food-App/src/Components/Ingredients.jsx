@@ -6,7 +6,7 @@ const Ingredients = ({food,  isLoading }) => {
     <div>
       <h2>Ingredients</h2>{isLoading
        ? "Loading...." : food.extendedIngredients.map((item) => (
-       <Item item = {item}/>
+       <Item item = {item} key = {Math.random()}/>
       ))}
       
     </div>

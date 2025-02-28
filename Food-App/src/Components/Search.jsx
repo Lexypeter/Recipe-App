@@ -5,14 +5,13 @@ import styles from "./search.module.css"
 const Search = ({ foodData, setFoodData }) => {
   const [querry, setQuerry] = useState("");
   useEffect(() => {
-    if (!querry) return; // Prevents API calls on empty query
+    if (!querry) setQuerry("pasta");
   
-    const controller = new AbortController();
-    const signal = controller.signal;
   
-    const debounceTimer = setTimeout(async () => {
+  
+    const fetchSearch = async ()=> {
       try {
-        const res = await fetch(`${urls}?query=${querry}&apiKey=${apiKey}`, { signal });
+        const res = await fetch(`${urls}?query=${querry}&apiKey=${apiKey}`);
         if (!res.ok) throw new Error("Failed to fetch data");
         const data = await res.json();
         setFoodData(data.results);
@@ -21,12 +20,8 @@ const Search = ({ foodData, setFoodData }) => {
           console.error("API Fetch Error:", error);
         }
       }
-    }, 500); 
-  
-    return () => {
-      clearTimeout(debounceTimer); 
-      controller.abort(); 
-    };
+    }
+    fetchSearch()
   }, [querry]);
   
   return (

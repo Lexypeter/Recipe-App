@@ -44,7 +44,7 @@ const FoodDetails = ({ foodId }) => {
 
       <div>💰 <span><strong>${food.pricePerServing}</strong></span>
       </div>
-      <Ingredients food={food} isLoading = {isLoading}/>
+      <Ingredients food={food} isLoading = {isLoading} key={Math.random()}/>
         <h2>Instructions</h2>
         <div className={styles.recipeInstructions}>
         {food.analyzedInstructions?.length > 0 && food.analyzedInstructions[0]?.steps?.length > 0 ? (
