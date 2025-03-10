@@ -1,9 +1,13 @@
-.searchContainer{
+.searchContainer {
   margin: 20px auto;
   width: 300px;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
-.input{
+
+/* Style for the input field */
+.input {
   border: none;
   border-bottom: 1px solid #e3e4dc;
   padding: 10px 20px;
@@ -11,4 +15,55 @@
   outline: none;
   font-size: 16px;
   color: #393e46;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Larger Screens (1440px and above) */
+@media (min-width: 1440px) {
+  .searchContainer {
+    width: 500px;
+  }
+  .input {
+    font-size: 18px;
+    padding: 12px 25px;
+  }
+}
+
+/* Desktop Screens (1024px - 1439px) */
+@media (max-width: 1439px) {
+  .searchContainer {
+    width: 400px;
+  }
+}
+
+/* Tablets (768px - 1023px) */
+@media (max-width: 1023px) {
+  .searchContainer {
+    width: 350px;
+  }
+  .input {
+    font-size: 14px;
+  }
+}
+
+/* Small Tablets & Large Phones (600px - 767px) */
+@media (max-width: 767px) {
+  .searchContainer {
+    width: 80%;
+  }
+  .input {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+}
+
+/* Mobile Phones (below 600px) */
+@media (max-width: 600px) {
+  .searchContainer {
+    width: 90%;
+  }
+  .input {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
 }

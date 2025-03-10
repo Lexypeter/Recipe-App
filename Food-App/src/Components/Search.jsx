@@ -5,10 +5,6 @@ import styles from "./search.module.css"
 const Search = ({ foodData, setFoodData }) => {
   const [querry, setQuerry] = useState("");
   useEffect(() => {
-    if (!querry) setQuerry("pasta");
-  
-  
-  
     const fetchSearch = async ()=> {
       try {
         const res = await fetch(`${urls}?query=${querry}&apiKey=${apiKey}`);
@@ -16,9 +12,8 @@ const Search = ({ foodData, setFoodData }) => {
         const data = await res.json();
         setFoodData(data.results);
       } catch (error) {
-        if (error.name !== "AbortError") {
-          console.error("API Fetch Error:", error);
-        }
+    console.log("Error was found", error);
+    
       }
     }
     fetchSearch()
@@ -27,7 +22,7 @@ const Search = ({ foodData, setFoodData }) => {
   return (
     <div className={styles.searchContainer}>
       <input className={styles.input}
-        type="text"
+        type="text" placeholder="Search Recipes"
         value={querry}
         onChange={(e) => {
           setQuerry(e.target.value);
