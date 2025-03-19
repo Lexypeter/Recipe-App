@@ -1,10 +1,11 @@
 import React from "react"
 import FoodItems from "./FoodItems";
+import styles from "./foodList.module.css"
 
 
 const FoodList = ({foodData, setFoodId}) => {
   return (
-    <div>
+    <div className={styles.foodWrapper} >
     {foodData.map((food)=>(
       <FoodItems  food={food} key={food.id} setFoodId={setFoodId}/>
     ))}

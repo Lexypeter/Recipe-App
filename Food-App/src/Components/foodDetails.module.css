@@ -8,6 +8,10 @@
   color: #393e46;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
+  flex: 1; 
+  overflow: auto; 
+  max-height: 100vh; 
+  
 }
 
 .recipeName {
